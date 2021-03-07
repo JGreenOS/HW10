@@ -14,7 +14,7 @@ const { validate } = require("@babel/types");
 
 const people = [];
 
-function overallMakeFunctionWork () {
+function mainfunction() {
 
 
     //start with manager
@@ -50,23 +50,27 @@ function overallMakeFunctionWork () {
 
             ]).then(answers => {
                 const manager = new Manager(answers.EmployeeNumber, answers.ManagerName, answers.ManagerEmailAddress, answers.OfficeNumber);
+                people.push(manager);
             });
-        }
     }
+    //makeManager has to be inside of the main function for inquirer to run
+    makeManager();
+}
+
 
 //create inquirer questions
 
 //ask which role to input (engineer, intern or done)
-    //     {
-    //         type:'list',
-    //         message: 'Engineer or Intern?',
-    //         name: 'Role',
-    //         choices: ["Engineer", "Intern", "All Set - Build Team"],
-    //         when: function(UserInput) {
-    //             return 
+//     {
+//         type:'list',
+//         message: 'Engineer or Intern?',
+//         name: 'Role',
+//         choices: ["Engineer", "Intern", "All Set - Build Team"],
+//         when: function(UserInput) {
+//             return 
 
-    //     },
-    // },
+//     },
+// },
 
 
 
@@ -79,7 +83,6 @@ function overallMakeFunctionWork () {
 
 //is team done?
 
-//create team
-
+mainfunction();
 //make HTML
 
