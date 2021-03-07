@@ -82,7 +82,21 @@ function mainfunction() {
 //if engineer, go to engineer questions
 
 //is team done?
-
+function makeHTML() {
+    // Create the output directory if the output path doesn't exist
+    if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(people), "utf-8");
+  }
+makeHTML();
 mainfunction();
 //make HTML
+
+userInput()
+ .then((answers) => writeFileAsync('index.html', mainfunction(answers)))
+ .then(() => console.log('Successfully wrote index.html file'))
+.catch((err) => console.error(err));
+
+module.exports = mainfunction;
 
