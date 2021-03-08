@@ -10,7 +10,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 const util = require('util');
-const render = require("./src/templatehelpercode.js");
+const render = require("./src/templatehelpercode");
 //const render = require( enter the template name here when the array is built out)
 const { validate } = require("@babel/types");
 
@@ -164,7 +164,7 @@ const startApp = () => {
         if (!fs.existsSync(OUTPUT_DIR)) {
             fs.mkdirSync(OUTPUT_DIR)
         }
-        fs.writeFileAsync(outputPath, render(people), "utf-8");
+      fs.writeFileSync(outputPath, render(people), "utf-8");
     };
 
     managerData();
