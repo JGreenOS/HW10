@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -13,21 +13,20 @@
 </head>
 
 <body>
-    <div class = "container">
-        <div class = "row">
-            <div class = "jumbotron">
-            <h1> My Team </h1>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1> Team Profile </h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="team-area col-12 justify-content-center">
+                ${makeMagic(people)}
             </div>
         </div>
     </div>
 
-<div class = "container">
-    <div class = "row">
-        <div class = "team-area col-12 d-flex justify-content-center">
-            ${makeMagic(people)}
-        </div>
-    </div>
-</div>
-
 </body>
+
 </html>

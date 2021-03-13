@@ -35,7 +35,7 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "input",
+                    type: "number",
                     message: "Enter the employee number",
                     name: "employeeNumber",
                 },
@@ -98,7 +98,7 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "input",
+                    type: "number",
                     name: "engineerId",
                     message: "Enter the Engineer's employee id"
                 },
@@ -119,7 +119,7 @@ const startApp = () => {
                 },
             ])
             .then(answers => {
-                const engineer = new Engineer(answers.engineerId, answers.engineerName, answers.engineerEmail, answers.engineerGithub)
+                const engineer = new Engineer(answers.engineerId, answers.engineerName, answers.engineerEmail, answers.engineerGitHub)
                 people.push(engineer)
                 ids.push(answers.engineerId);
                 addTeamMember();
@@ -129,7 +129,7 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "input",
+                    type: "number",
                     message: "Enter the employee number",
                     name: "employeeNumber",
                 },
