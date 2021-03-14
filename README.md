@@ -2,10 +2,11 @@
 ### Team Profile Generator
 
 ## User Story
+```md
 AS A manager
 I WANT to generate a webpage that display's my team's basic information
 SO THAT I have quick access to their emails and GitHub profiles
-
+```
 
 
 ## Description
