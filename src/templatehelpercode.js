@@ -2,14 +2,12 @@
 
 //call function to bring all of team here, set parameter to people (because that's what I used in the HTML)
 const makeMagic = people => {
-
-
     //create the template here with cards (this is manager one)
-
     const makeManagerMagic = manager => {
         return `
+
 <div class="row justify-content-center">
-<div class = "card mt-2 mb-2 employee-card">
+<div class = "employee-card">
 <div class = "card-header">
 <img src="../dist/Assets/maanger.png" class = "card-img-top" alt="icon of manager">
 <h2 class = "card-title">Manager: ${manager.name}</h2>
@@ -23,13 +21,14 @@ const makeMagic = people => {
 </div>
 </div>
 </div>
+
 `
     }
 
     const makeEngineerMagic = engineer => {
         return `
 <div class="row justify-content-center">
-<div class = "card mt-2 mb-1 employee-card">
+<div class = "employee-card">
 <div class = "card-header">
 <img src="../dist/Assets/engineer.png" class = "card-img-top" alt="icon of engineer">
 <h2 class = "card-title">Engineer : ${engineer.name}</h2>
@@ -42,14 +41,12 @@ const makeMagic = people => {
 </div>
 </div>
 </div>
-</div>
-`
-    }
-
+`   }
     const makeInternAwesome = intern => {
         return `
+</div>
 <div class="row justify-content-center">
-<div class = "card mt-2 mb-1 employee-card">
+<div class = "employee-card">
 <div class = "card-header">
 <img src="../dist/Assets/intern.png" class = "card-img-top" alt="icon of intern">
 <h2 class = "card-title">Intern : ${intern.name}</h2>
@@ -59,8 +56,6 @@ const makeMagic = people => {
 <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
 <li class="list-group-item">Current School: ${intern.getSchool()}</li>
 </ul>
-</div>
-</div>
 </div>
 </div>
 `
@@ -104,7 +99,6 @@ module.exports = people => {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../dist/style.css">
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
 </head>
 
 <body>
@@ -120,7 +114,6 @@ module.exports = people => {
             ${makeMagic(people)}
         </div>
     
-</div>
 </div>
 </div>
 </body>

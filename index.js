@@ -49,6 +49,16 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the manager's email address",
                     name: "managerEmail",
+                    validate: function(email){
+                    // Regex mail check (return true if valid mail)
+                       valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                    if (valid) {
+                        return true;
+                    } else {
+                        console.log ("Please enter a valid email")
+                        return false;
+                    }
+                }
                 },
                 {
                     type: "number",
@@ -110,7 +120,18 @@ const startApp = () => {
                 {
                     type: "input",
                     name: "engineerEmail",
-                    message: "Enter the Engineer's Email Address"
+                    message: "Enter the Engineer's Email Address",
+                    validate: function(email){
+                        // Regex mail check (return true if valid mail)
+                           valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                        if (valid) {
+                            return true;
+                        } else {
+                            console.log ("Please enter a valid email")
+                            return false;
+                        }
+                    }
+                
                 },
                 {
                     type: "input",
@@ -143,6 +164,16 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the intern's email address",
                     name: "internEmail",
+                    validate: function(email){
+                        // Regex mail check (return true if valid mail)
+                           valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                        if (valid) {
+                            return true;
+                        } else {
+                            console.log ("Please enter a valid email")
+                            return false;
+                        }
+                    }
                 },
                 {
                     type: "input",
