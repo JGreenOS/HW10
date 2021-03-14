@@ -1,5 +1,13 @@
 
-#Team Profile Generator
+### Team Profile Generator
+
+## User Story
+AS A manager
+I WANT to generate a webpage that display's my team's basic information
+SO THAT I have quick access to their emails and GitHub profiles
+
+
+
 
 This is a command-line interface with unit tests using a team profile page.  
 
@@ -15,7 +23,7 @@ Directions:
 4.  User will be prompted to enter the manager's employee number to begin the application. NOTE: all text will be presented as entered!
 
 Walkthrough video: 
-
+https://github.com/JGreenOS/HW10/blob/master/walkthrough%20with%20outputmp4.mp4
 
 
 Sample HTML screenshot: 
