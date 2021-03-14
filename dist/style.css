@@ -1,3 +1,5 @@
+/* CSS to set the background to green and center the body and set the jumbotron to yellow*/
+
 body
 {
    background-color: green; 
@@ -8,7 +10,7 @@ body
 background-color: rgb(221, 209, 34);
 
 }
-
+/* styling for team area, bring in backgroun image, set styling for cards */
 
 .team-area {
     max-width: 1000px;

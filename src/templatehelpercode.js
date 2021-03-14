@@ -1,5 +1,3 @@
-
-
 //call function to bring all of team here, set parameter to people (because that's what I used in the HTML)
 const makeMagic = people => {
     //create the template here with cards (this is manager one)
@@ -24,7 +22,7 @@ const makeMagic = people => {
 
 `
     }
-
+//this will create the engineer cards
     const makeEngineerMagic = engineer => {
         return `
 <div class="row justify-content-center">
@@ -42,6 +40,8 @@ const makeMagic = people => {
 </div>
 </div>
 `   }
+
+//this will create the intern cards
     const makeInternAwesome = intern => {
         return `
 </div>
@@ -58,11 +58,11 @@ const makeMagic = people => {
 </ul>
 </div>
 </div>
-`
-    }
-    // end of function to create html
+`}
+// end of function to create html
 
-    const sortPeople = [];
+//Input can be done in any order - this sorts the input into the correct cards   
+const sortPeople = [];
 
     sortPeople.push(people
         .filter(employee => employee.getRole() === "Manager")

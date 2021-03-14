@@ -35,11 +35,17 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "number",
+                    type: "input",
                     message: "Enter the employee number",
                     name: "employeeNumber",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number";
+                        }
+                        return true;
+                    
                 },
-
+            },
                 {
                     type: "input",
                     message: "Enter the manager's first and last name",
@@ -61,12 +67,17 @@ const startApp = () => {
                 }
                 },
                 {
-                    type: "number",
+                    type: "input",
                     message: "Enter the manager's office number",
                     name: "managerOffice",
-                },
-
-
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an office number";
+                        }
+                        return true;
+                }
+                
+            },
 
             ])
             .then(answers => {
@@ -108,9 +119,16 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "number",
+                    type: "input",
                     name: "engineerId",
-                    message: "Enter the Engineer's employee id"
+                    message: "Enter the Engineer's employee id",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number"
+                        }
+                        return true;
+                    
+                },
                 },
                 {
                     type: "input",
@@ -127,7 +145,7 @@ const startApp = () => {
                         if (valid) {
                             return true;
                         } else {
-                            console.log ("Please enter a valid email")
+                            console.log ("Use the backspace key to clear your entry and enter a valid email address")
                             return false;
                         }
                     }
@@ -150,9 +168,16 @@ const startApp = () => {
         inquirer.prompt(
             [
                 {
-                    type: "number",
+                    type: "input",
                     message: "Enter the employee number",
                     name: "employeeNumber",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number";
+                        }
+                        return true;
+                    
+                },
                 },
 
                 {
@@ -170,7 +195,7 @@ const startApp = () => {
                         if (valid) {
                             return true;
                         } else {
-                            console.log ("Please enter a valid email")
+                            console.log ("Use the backspace key to clear your entry and enter a valid email address")
                             return false;
                         }
                     }
