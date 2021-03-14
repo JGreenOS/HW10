@@ -10,7 +10,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 const util = require('util');
-const render = require("./src/templatehelpercode.js");
+const render = require("./src/templatehelpercode");
 //const render = require( enter the template name here when the array is built out)
 const { validate } = require("@babel/types");
 
@@ -38,8 +38,14 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the employee number",
                     name: "employeeNumber",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number";
+                        }
+                        return true;
+                    
                 },
-
+            },
                 {
                     type: "input",
                     message: "Enter the manager's first and last name",
@@ -49,14 +55,29 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the manager's email address",
                     name: "managerEmail",
+                    validate: function(email){
+                    // Regex mail check (return true if valid mail)
+                       valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                    if (valid) {
+                        return true;
+                    } else {
+                        console.log ("Please enter a valid email")
+                        return false;
+                    }
+                }
                 },
                 {
-                    type: "number",
+                    type: "input",
                     message: "Enter the manager's office number",
                     name: "managerOffice",
-                },
-
-
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an office number";
+                        }
+                        return true;
+                }
+                
+            },
 
             ])
             .then(answers => {
@@ -100,7 +121,14 @@ const startApp = () => {
                 {
                     type: "input",
                     name: "engineerId",
-                    message: "Enter the Engineer's employee id"
+                    message: "Enter the Engineer's employee id",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number"
+                        }
+                        return true;
+                    
+                },
                 },
                 {
                     type: "input",
@@ -110,7 +138,18 @@ const startApp = () => {
                 {
                     type: "input",
                     name: "engineerEmail",
-                    message: "Enter the Engineer's Email Address"
+                    message: "Enter the Engineer's Email Address",
+                    validate: function(email){
+                        // Regex mail check (return true if valid mail)
+                           valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                        if (valid) {
+                            return true;
+                        } else {
+                            console.log ("Use the backspace key to clear your entry and enter a valid email address")
+                            return false;
+                        }
+                    }
+                
                 },
                 {
                     type: "input",
@@ -119,7 +158,7 @@ const startApp = () => {
                 },
             ])
             .then(answers => {
-                const engineer = new Engineer(answers.engineerId, answers.engineerName, answers.engineerEmail, answers.engineerGithub)
+                const engineer = new Engineer(answers.engineerId, answers.engineerName, answers.engineerEmail, answers.engineerGitHub)
                 people.push(engineer)
                 ids.push(answers.engineerId);
                 addTeamMember();
@@ -132,6 +171,13 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the employee number",
                     name: "employeeNumber",
+                    validate: (answer) => {
+                        if (isNaN(answer)) {
+                            return "Use the backspace key to clear your entry and enter an employee number";
+                        }
+                        return true;
+                    
+                },
                 },
 
                 {
@@ -143,6 +189,16 @@ const startApp = () => {
                     type: "input",
                     message: "Enter the intern's email address",
                     name: "internEmail",
+                    validate: function(email){
+                        // Regex mail check (return true if valid mail)
+                           valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email)
+                        if (valid) {
+                            return true;
+                        } else {
+                            console.log ("Use the backspace key to clear your entry and enter a valid email address")
+                            return false;
+                        }
+                    }
                 },
                 {
                     type: "input",
@@ -164,7 +220,7 @@ const startApp = () => {
         if (!fs.existsSync(OUTPUT_DIR)) {
             fs.mkdirSync(OUTPUT_DIR)
         }
-        fs.writeFileAsync(outputPath, render(people), "utf-8");
+      fs.writeFileSync(outputPath, render(people), "utf-8");
     };
 
     managerData();
